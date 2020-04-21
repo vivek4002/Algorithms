@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/RandomizeAlgorithms/bin/Debug/netcoreapp3.1/RandomizeAlgorithms.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/MergeSort.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/RandomizeAlgorithms",
+            "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
