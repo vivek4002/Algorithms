@@ -8,15 +8,20 @@ namespace MergeSort {
     public class MergeSort {
         public int[] Sort (int[] arr) 
         {
+            return Sort(arr,0,arr.Length-1);
+        }
 
-            if (arr.Length==1) return arr;
+        public int[] Sort(int[] arr, int start, int end)
+        {
+            //base condition
+            if(start==end) return new int[]{arr[start]};
             //Devide
-            var partition= Partition(arr);
-            //Conquor
-            var sortedArr1=Sort (partition.arr1);
-            var sortedArr2= Sort (partition.arr2);
+            var partition= (start+end)/2;
+            //Conquor  
+            var firstSorted= Sort(arr, start,partition);
+            var secondSorted=Sort(arr, partition+1, end);
             //Merge
-            return Merge (sortedArr1,sortedArr2 );
+            return Merge (firstSorted,secondSorted );
 
         }
 
@@ -50,20 +55,5 @@ namespace MergeSort {
 
         }
 
-        private (int[] arr1, int[] arr2) Partition (int[] arr) {
-            var partitionIndex = arr.Length / 2;
-            var arr1 = new int[partitionIndex];
-            var arr2 = new int[arr.Length - partitionIndex];
-            int i = 0;
-            while (i < partitionIndex) {
-                arr1[i] = arr[i];
-                i++;
-            }
-            while (i < arr.Length) {
-                arr2[i-partitionIndex] = arr[i];
-                i++;
-            }
-            return (arr1, arr2);
-        }
     }
 }
